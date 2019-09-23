@@ -23,6 +23,11 @@
 		384F6BA323393239005BCAED /* LLSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F6B9523393239005BCAED /* LLSpinner.swift */; };
 		384F6BA423393239005BCAED /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F6B9723393239005BCAED /* UIColor+Hex.swift */; };
 		384F6BA523393239005BCAED /* UIVew+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F6B9823393239005BCAED /* UIVew+Constraints.swift */; };
+		384F6BA723393E84005BCAED /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F6BA623393E84005BCAED /* NowPlaying.swift */; };
+		384F6BA923393FAE005BCAED /* NowPlayingDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F6BA823393FAE005BCAED /* NowPlayingDate.swift */; };
+		384F6BAB23393FC6005BCAED /* NowPlayingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F6BAA23393FC6005BCAED /* NowPlayingResult.swift */; };
+		384F6BAD23394073005BCAED /* TopRated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F6BAC23394073005BCAED /* TopRated.swift */; };
+		384F6BAF23394095005BCAED /* TopRatedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F6BAE23394095005BCAED /* TopRatedResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +70,11 @@
 		384F6B9523393239005BCAED /* LLSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLSpinner.swift; sourceTree = "<group>"; };
 		384F6B9723393239005BCAED /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		384F6B9823393239005BCAED /* UIVew+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVew+Constraints.swift"; sourceTree = "<group>"; };
+		384F6BA623393E84005BCAED /* NowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlaying.swift; sourceTree = "<group>"; };
+		384F6BA823393FAE005BCAED /* NowPlayingDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingDate.swift; sourceTree = "<group>"; };
+		384F6BAA23393FC6005BCAED /* NowPlayingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingResult.swift; sourceTree = "<group>"; };
+		384F6BAC23394073005BCAED /* TopRated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRated.swift; sourceTree = "<group>"; };
+		384F6BAE23394095005BCAED /* TopRatedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +239,9 @@
 		384F6B8B23393238005BCAED /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				384F6BA623393E84005BCAED /* NowPlaying.swift */,
+				384F6BAA23393FC6005BCAED /* NowPlayingResult.swift */,
+				384F6BA823393FAE005BCAED /* NowPlayingDate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,6 +297,8 @@
 		384F6B9223393238005BCAED /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				384F6BAC23394073005BCAED /* TopRated.swift */,
+				384F6BAE23394095005BCAED /* TopRatedResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,15 +459,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				384F6B9E23393239005BCAED /* FontConstant.swift in Sources */,
+				384F6BAF23394095005BCAED /* TopRatedResult.swift in Sources */,
 				384F6BA523393239005BCAED /* UIVew+Constraints.swift in Sources */,
 				384F6BA323393239005BCAED /* LLSpinner.swift in Sources */,
 				384F6B9F23393239005BCAED /* AppThemeConstant.swift in Sources */,
+				384F6BA723393E84005BCAED /* NowPlaying.swift in Sources */,
 				384F6B482339316E005BCAED /* AppDelegate.swift in Sources */,
+				384F6BAB23393FC6005BCAED /* NowPlayingResult.swift in Sources */,
 				384F6B9D23393239005BCAED /* AppSettings.swift in Sources */,
+				384F6BAD23394073005BCAED /* TopRated.swift in Sources */,
 				384F6BA023393239005BCAED /* TypeAlias.swift in Sources */,
 				384F6B9A23393239005BCAED /* PermisionOffer.swift in Sources */,
 				384F6BA423393239005BCAED /* UIColor+Hex.swift in Sources */,
 				384F6BA223393239005BCAED /* NowPlayingVC.swift in Sources */,
+				384F6BA923393FAE005BCAED /* NowPlayingDate.swift in Sources */,
 				384F6BA123393239005BCAED /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
