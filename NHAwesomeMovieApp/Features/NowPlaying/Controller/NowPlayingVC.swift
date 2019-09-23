@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NowPlayingController.swift
 //  NHAwesomeMovieApp
 //
 //  Created by Nazmul on 23/9/19.
@@ -8,13 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class NowPlayingVC : UIViewController {
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        //here you go....
     }
-
-
 }
-
