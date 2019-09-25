@@ -27,7 +27,7 @@ struct TabBarItemController {
             self.imageDisabled = AppConstants.TabBarItems.Movies.imageDisabled
         case .TopMovie:
             self.controllerName = AppConstants.TabBarItems.TvShows.name
-            self.controller = NowPlayingViewController()
+            self.controller = TopRatedViewController()
             self.imageEnbled = AppConstants.TabBarItems.TvShows.imageEnbled
             self.imageDisabled = AppConstants.TabBarItems.TvShows.imageDisabled
         }

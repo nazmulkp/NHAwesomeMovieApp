@@ -8,12 +8,13 @@
 
 import UIKit
 
-class NowPlayingViewController: UIViewController, AlertDisplayer {
+
+class MoveViewController: UIViewController, AlertDisplayer {
     private enum CellIdentifiers {
         static let id = "cellid"
     }
     
-    private var viewModel: NowPlayingViewModel!
+     var viewModel: NowPlayingViewModel!
  
     var tableView : UITableView = {
         var tableView = UITableView()
@@ -35,13 +36,13 @@ class NowPlayingViewController: UIViewController, AlertDisplayer {
     override func viewDidLoad() {
         super.viewDidLoad()
          setupView()
-         LLSpinner.spin()
-         viewModel = NowPlayingViewModel(delegate: self)
-         viewModel.fetchNowPlaying()
+//         LLSpinner.spin()
+//         viewModel = NowPlayingViewModel(pageName: "now_playing", delegate: self)
+//         viewModel.fetchNowPlaying()
     }
 }
 
-extension NowPlayingViewController: UITableViewDataSource {
+extension MoveViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Hints:- Initial count almost 1200+ it's shound not best practice. if you want to use this code as production then you should use 2D array. and keep 60-100 item only that array when scrolling down adding 20 item end of the array then you must be remove 20 item from beginning of the array. and when scrolling up adding 20 item from beginning of the array then remove 20 item from end of the array. 
         return viewModel.totalCount
@@ -62,7 +63,7 @@ extension NowPlayingViewController: UITableViewDataSource {
     }
 }
 
-extension NowPlayingViewController: NowPlayingViewModelDelegate {
+extension MoveViewController: NowPlayingViewModelDelegate {
     
     func onFetchCompleted(with newIndexPathsToReload: [IndexPath]?) {
         // 1
@@ -89,7 +90,7 @@ extension NowPlayingViewController: NowPlayingViewModelDelegate {
     
 }
 
-private extension NowPlayingViewController {
+private extension MoveViewController {
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
         print("viewing number\(indexPath.row) \(viewModel.totalCount) ,avabilalbe\(viewModel.currentCount)")
         return indexPath.row >= viewModel.currentCount
@@ -102,7 +103,7 @@ private extension NowPlayingViewController {
     }
 }
 
-extension NowPlayingViewController: UITableViewDataSourcePrefetching {
+extension MoveViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         if indexPaths.contains(where: isLoadingCell) {
             viewModel.fetchNowPlaying()
@@ -110,4 +111,26 @@ extension NowPlayingViewController: UITableViewDataSourcePrefetching {
     }
 }
 
+
+
+
+
+class NowPlayingViewController : MoveViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        LLSpinner.spin()
+        viewModel = NowPlayingViewModel(pageName: MoviesEndPoint.getnowPlaying.rawValue, delegate: self)
+        viewModel.fetchNowPlaying()
+    }
+}
+
+
+class TopRatedViewController : NowPlayingViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        LLSpinner.spin()
+        viewModel = NowPlayingViewModel(pageName: MoviesEndPoint.getTopRates.rawValue, delegate: self)
+        viewModel.fetchNowPlaying()
+    }
+}
 

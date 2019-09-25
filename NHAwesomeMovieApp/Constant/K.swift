@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum MoviesEndPoint: String {
+    case getnowPlaying  = "movie/popular"
+    case getTopRates = "movie/top_rated"
+}
+
 struct K {
     
     private struct Domains {
@@ -46,11 +51,11 @@ struct K {
     
     //https://api.themoviedb.org/3/movie/now_playing?api_key=26bd27c2f63ddd742d5bcdfe5129f5d0&page=1
     enum APIEndpoints {
-        case getNowPlaying(page:Int,key: String)
+        case getNowPlaying(pageNaem : String,page:Int,key: String)
         var path: String {
             switch self {
-            case let .getNowPlaying(page,key):
-                return BaseURL  + "/movie/now_playing?api_key=\(key)&page=\(page)"
+            case let .getNowPlaying(pageName,page,key):
+                return BaseURL  + "/\(pageName)?api_key=\(key)&page=\(page)"
             }
         }
     }

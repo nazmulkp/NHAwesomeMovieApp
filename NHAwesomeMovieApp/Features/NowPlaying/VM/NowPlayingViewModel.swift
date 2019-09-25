@@ -18,7 +18,9 @@ final class NowPlayingViewModel {
     private var isFetchInProgress = false
     
     var client : NHDataProvider!
-    init( client : NHDataProvider = NHClientHTTPNetworking(), delegate: NowPlayingViewModelDelegate) {
+    var pageName : String!
+    init( pageName: String, client : NHDataProvider = NHClientHTTPNetworking(), delegate: NowPlayingViewModelDelegate) {
+        self.pageName = pageName
         self.client = client
         self.delegate = delegate
     }
@@ -43,7 +45,7 @@ final class NowPlayingViewModel {
         
         isFetchInProgress = true
         // 2
-        let url = URL(string:K.APIEndpoints.getNowPlaying(page: currentPage, key: tokenClosure()).path )!
+        let url = URL(string:K.APIEndpoints.getNowPlaying(pageNaem: pageName, page: currentPage, key: tokenClosure()).path )!
         print(url)
         client.fetchRemote(NowPlayingList.self, url: url) { result in
             switch result {
