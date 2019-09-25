@@ -1,0 +1,6 @@
+framework module Pods_NHAwesomeMovieApp {
+  umbrella header "Pods-NHAwesomeMovieApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
