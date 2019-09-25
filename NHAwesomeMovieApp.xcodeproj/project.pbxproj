@@ -37,6 +37,9 @@
 		38681D69233BE595004D82BC /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D68233BE595004D82BC /* K.swift */; };
 		38681D6B233BE859004D82BC /* NowPlayingViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D6A233BE859004D82BC /* NowPlayingViewModelDelegate.swift */; };
 		38681D6D233BE8B2004D82BC /* AlertDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D6C233BE8B2004D82BC /* AlertDisplayer.swift */; };
+		38681D71233C1DBD004D82BC /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D6F233C1DBD004D82BC /* TabBarItem.swift */; };
+		38681D72233C1DBD004D82BC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D70233C1DBD004D82BC /* TabBarViewController.swift */; };
+		38681D74233C1E3A004D82BC /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D73233C1E3A004D82BC /* AppConstants.swift */; };
 		50F340180157C9D1F129D6BC /* Pods_NHAwesomeMovieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E28CC71F6F61B2AF07CB40EA /* Pods_NHAwesomeMovieAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +97,9 @@
 		38681D68233BE595004D82BC /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		38681D6A233BE859004D82BC /* NowPlayingViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewModelDelegate.swift; sourceTree = "<group>"; };
 		38681D6C233BE8B2004D82BC /* AlertDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplayer.swift; sourceTree = "<group>"; };
+		38681D6F233C1DBD004D82BC /* TabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		38681D70233C1DBD004D82BC /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		38681D73233C1E3A004D82BC /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		8561B39046994E440C5E0B6B /* Pods-NHAwesomeMovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHAwesomeMovieApp.release.xcconfig"; path = "Target Support Files/Pods-NHAwesomeMovieApp/Pods-NHAwesomeMovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		9BC21D23F69FD09FBB764DC1 /* Pods-NHAwesomeMovieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHAwesomeMovieApp.debug.xcconfig"; path = "Target Support Files/Pods-NHAwesomeMovieApp/Pods-NHAwesomeMovieApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B1D2B0305B37C8E8885A8E8D /* Pods-NHAwesomeMovieAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHAwesomeMovieAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-NHAwesomeMovieAppUITests/Pods-NHAwesomeMovieAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +194,7 @@
 		384F6B7723393238005BCAED /* App */ = {
 			isa = PBXGroup;
 			children = (
+				38681D6E233C1D91004D82BC /* TabBar */,
 				384F6B4B2339316E005BCAED /* Main.storyboard */,
 				384F6B472339316E005BCAED /* AppDelegate.swift */,
 				384F6B7923393238005BCAED /* PermisionOffer.swift */,
@@ -214,6 +221,7 @@
 				384F6B8323393238005BCAED /* Color.swift */,
 				38681D66233BE574004D82BC /* AuthHelper.swift */,
 				38681D68233BE595004D82BC /* K.swift */,
+				38681D73233C1E3A004D82BC /* AppConstants.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -373,6 +381,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		38681D6E233C1D91004D82BC /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				38681D6F233C1DBD004D82BC /* TabBarItem.swift */,
+				38681D70233C1DBD004D82BC /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		78D983379F3A91D8607986DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,7 +410,6 @@
 				B1D2B0305B37C8E8885A8E8D /* Pods-NHAwesomeMovieAppUITests.debug.xcconfig */,
 				F9A51CA749F58DB18FAFC271 /* Pods-NHAwesomeMovieAppUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -629,15 +645,18 @@
 				384F6BA323393239005BCAED /* LLSpinner.swift in Sources */,
 				384F6B9F23393239005BCAED /* AppThemeConstant.swift in Sources */,
 				38681D67233BE574004D82BC /* AuthHelper.swift in Sources */,
+				38681D71233C1DBD004D82BC /* TabBarItem.swift in Sources */,
 				384F6BA723393E84005BCAED /* NowPlayingList.swift in Sources */,
 				384F6B482339316E005BCAED /* AppDelegate.swift in Sources */,
 				38681D65233BC059004D82BC /* NowPlayingTableViewCell.swift in Sources */,
 				384F6BAB23393FC6005BCAED /* NowPlaying.swift in Sources */,
 				384F6B9D23393239005BCAED /* AppSettings.swift in Sources */,
 				384F6BAD23394073005BCAED /* TopRated.swift in Sources */,
+				38681D72233C1DBD004D82BC /* TabBarViewController.swift in Sources */,
 				384F6BA023393239005BCAED /* TypeAlias.swift in Sources */,
 				384F6B9A23393239005BCAED /* PermisionOffer.swift in Sources */,
 				384F6BA423393239005BCAED /* UIColor+Hex.swift in Sources */,
+				38681D74233C1E3A004D82BC /* AppConstants.swift in Sources */,
 				38681D69233BE595004D82BC /* K.swift in Sources */,
 				384F6BA223393239005BCAED /* NowPlayingVC.swift in Sources */,
 				38681D6B233BE859004D82BC /* NowPlayingViewModelDelegate.swift in Sources */,
