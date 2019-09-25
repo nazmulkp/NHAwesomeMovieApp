@@ -43,16 +43,15 @@ class NowPlayingViewController: UIViewController, AlertDisplayer {
 
 extension NowPlayingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //Hints:- Initial count almost 1200+ it's shound not best practice. if you want to use this code as production then you should use 2D array. and keep 60 item only that array when scrolling down adding 20 item end of the array then you must be remove 20 item from beginaing of the array. and when scrolling up adding 20 item from beginaing of the array then remove 20 item from bottom. 
         return viewModel.totalCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.id, for: indexPath) as! NowPlayingTableViewCell
-//        cell.viewModel = viewModel.nowPlaying(at: indexPath.row)
-//
         // 2
         if isLoadingCell(for: indexPath) {
-           // cell.configure(with: .none)
+           //TODO
         } else {
             cell.viewModel = viewModel.nowPlaying(at: indexPath.row)
         }
