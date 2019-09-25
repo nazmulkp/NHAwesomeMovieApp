@@ -43,7 +43,7 @@ final class NowPlayingViewModel {
         
         isFetchInProgress = true
         // 2
-        let url = URL(string:K.APIEndpoints.getNowPlaying(page: 1, key: tokenClosure()).path )!
+        let url = URL(string:K.APIEndpoints.getNowPlaying(page: currentPage, key: tokenClosure()).path )!
         print(url)
         client.fetchRemote(NowPlayingList.self, url: url) { result in
             switch result {
@@ -56,15 +56,35 @@ final class NowPlayingViewModel {
             // 4
             case .success(let response):
                 DispatchQueue.main.async {
+                    // 1
+                    self.currentPage += 1
                     self.isFetchInProgress = false
+                    // 2
+                    
                     if let response = response as? NowPlayingList {
-                        if let result =  response.results {
-                            self.nowPlaying.append(contentsOf: result)
+                        self.total = response.totalResults ?? 0
+                        if let results =  response.results {
+                            self.nowPlaying.append(contentsOf: results)
+                        }
+                        if response.page ?? 0 > 1 {
+                            if let results =  response.results {
+                                let indexPathsToReload = self.calculateIndexPathsToReload(from: results)
+                                self.delegate?.onFetchCompleted(with: indexPathsToReload)
+                            }
+                        } else {
+                            self.delegate?.onFetchCompleted(with: .none)
                         }
                     }
-                    self.delegate?.onFetchCompleted(with: .none)
+                    
                 }
             }
         }
+        
+    }
+    
+    private func calculateIndexPathsToReload(from newModerators: [NowPlaying]) -> [IndexPath] {
+        let startIndex = nowPlaying.count - newModerators.count
+        let endIndex = startIndex + newModerators.count
+        return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
     }
 }
