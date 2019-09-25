@@ -25,5 +25,4 @@ struct NowPlayingDate : Codable {
         minimum = try values.decodeIfPresent(String.self, forKey: .minimum)
     }
     
-    
 }

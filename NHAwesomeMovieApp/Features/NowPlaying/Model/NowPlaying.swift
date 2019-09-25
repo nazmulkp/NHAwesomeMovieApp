@@ -1,8 +1,8 @@
 //
-//  RootClass.swift
+//  NowPlayingResult.swift
 //  NHAwesomeMovieApp
 //
-//  Created by Nazmul on 23/9/19.
+//  Created by Nazmul on 24/9/19.
 //  Copyright © 2019 Nazmul Hasan. All rights reserved.
 //
 
@@ -10,29 +10,55 @@ import Foundation
 
 struct NowPlaying : Codable {
     
-    let dates : NowPlayingDate?
-    let page : Int?
-    let results : [NowPlayingResult]?
-    let totalPages : Int?
-    let totalResults : Int?
+    let adult : Bool?
+    let backdropPath : String?
+    let genreIds : [Int]?
+    let id : Int?
+    let originalLanguage : String?
+    let originalTitle : String?
+    let overview : String?
+    let popularity : Float?
+    let posterPath : String?
+    let releaseDate : String?
+    let title : String?
+    let video : Bool?
+    let voteAverage : Float?
+    let voteCount : Int?
     
     
     enum CodingKeys: String, CodingKey {
-        case dates
-        case page = "page"
-        case results = "results"
-        case totalPages = "total_pages"
-        case totalResults = "total_results"
+        case adult = "adult"
+        case backdropPath = "backdrop_path"
+        case genreIds = "genre_ids"
+        case id = "id"
+        case originalLanguage = "original_language"
+        case originalTitle = "original_title"
+        case overview = "overview"
+        case popularity = "popularity"
+        case posterPath = "poster_path"
+        case releaseDate = "release_date"
+        case title = "title"
+        case video = "video"
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
     }
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        dates = try NowPlayingDate(from: decoder)
-        page = try values.decodeIfPresent(Int.self, forKey: .page)
-        results = try values.decodeIfPresent([NowPlayingResult].self, forKey: .results)
-        totalPages = try values.decodeIfPresent(Int.self, forKey: .totalPages)
-        totalResults = try values.decodeIfPresent(Int.self, forKey: .totalResults)
+        adult = try values.decodeIfPresent(Bool.self, forKey: .adult)
+        backdropPath = try values.decodeIfPresent(String.self, forKey: .backdropPath)
+        genreIds = try values.decodeIfPresent([Int].self, forKey: .genreIds)
+        id = try values.decodeIfPresent(Int.self, forKey: .id)
+        originalLanguage = try values.decodeIfPresent(String.self, forKey: .originalLanguage)
+        originalTitle = try values.decodeIfPresent(String.self, forKey: .originalTitle)
+        overview = try values.decodeIfPresent(String.self, forKey: .overview)
+        popularity = try values.decodeIfPresent(Float.self, forKey: .popularity)
+        posterPath = try values.decodeIfPresent(String.self, forKey: .posterPath)
+        releaseDate = try values.decodeIfPresent(String.self, forKey: .releaseDate)
+        title = try values.decodeIfPresent(String.self, forKey: .title)
+        video = try values.decodeIfPresent(Bool.self, forKey: .video)
+        voteAverage = try values.decodeIfPresent(Float.self, forKey: .voteAverage)
+        voteCount = try values.decodeIfPresent(Int.self, forKey: .voteCount)
     }
     
     
 }
-
