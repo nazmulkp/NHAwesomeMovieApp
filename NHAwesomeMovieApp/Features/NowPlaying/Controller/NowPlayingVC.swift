@@ -26,6 +26,9 @@ class NowPlayingViewController: UIViewController, AlertDisplayer {
         tableView.register(NowPlayingTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.id)
         tableView.isHidden = true
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 600
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     override func viewDidLoad() {
@@ -44,7 +47,7 @@ extension NowPlayingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.id, for: indexPath) as! NowPlayingTableViewCell
-        cell.configure(with: viewModel.nowPlaying(at: indexPath.row))
+        cell.viewModel = viewModel.nowPlaying(at: indexPath.row)
         return cell
     }
 }
