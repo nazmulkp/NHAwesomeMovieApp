@@ -9,6 +9,7 @@
 
 
 import UIKit
+import Kingfisher
 
 
 class TableViewBaseCell: UITableViewCell {
@@ -78,9 +79,10 @@ class NowPlayingTableViewCell : TableViewBaseCell{
             labelRating.text = vm.ratingVM
             labelTitle.text = vm.titleVM
             labelOverview.text = vm.overviewVM
-            labelReleaseDate.text = vm.titleVM
-            let url = URL(string: vm.smallpreviewVM)
-            //imageViewSmallPoster.kf.setImage(with: url)
+            labelReleaseDate.text = vm.releseDateVM
+            let url = URL(string: K.ImageDownload.endpath(withName: vm.smallpreviewVM).path)
+           // print(url)
+            imageViewSmallPoster.kf.setImage(with: url)
         }
     }
     
