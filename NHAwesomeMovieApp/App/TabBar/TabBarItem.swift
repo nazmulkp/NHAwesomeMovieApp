@@ -1,10 +1,11 @@
 //
-//  TabBarItem.swift
-//  MVVM-Movies
+//  TabBarItemController.swift
+//  NHAwesomeMovieApp
 //
-//  Created by Mario Acero on 1/14/18.
-//  Copyright © 2018 Mario Acero. All rights reserved.
+//  Created by Nazmul on 26/9/19.
+//  Copyright © 2019 Nazmul Hasan. All rights reserved.
 //
+
 
 import Foundation
 import UIKit
