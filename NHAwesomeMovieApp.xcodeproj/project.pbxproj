@@ -28,6 +28,7 @@
 		384F6BAB23393FC6005BCAED /* NowPlayingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F6BAA23393FC6005BCAED /* NowPlayingResult.swift */; };
 		384F6BAD23394073005BCAED /* TopRated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F6BAC23394073005BCAED /* TopRated.swift */; };
 		384F6BAF23394095005BCAED /* TopRatedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F6BAE23394095005BCAED /* TopRatedResult.swift */; };
+		38681D5E233BBBC7004D82BC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D5D233BBBC7004D82BC /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		384F6BAA23393FC6005BCAED /* NowPlayingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingResult.swift; sourceTree = "<group>"; };
 		384F6BAC23394073005BCAED /* TopRated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRated.swift; sourceTree = "<group>"; };
 		384F6BAE23394095005BCAED /* TopRatedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedResult.swift; sourceTree = "<group>"; };
+		38681D5D233BBBC7004D82BC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 		384F6B8423393238005BCAED /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				38681D5C233BBB9D004D82BC /* Helper */,
 				384F6B8523393238005BCAED /* NowPlaying */,
 				384F6B8D23393238005BCAED /* TopRated */,
 			);
@@ -325,6 +328,14 @@
 				384F6B9823393239005BCAED /* UIVew+Constraints.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		38681D5C233BBB9D004D82BC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				38681D5D233BBBC7004D82BC /* API.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,6 +484,7 @@
 				384F6BA423393239005BCAED /* UIColor+Hex.swift in Sources */,
 				384F6BA223393239005BCAED /* NowPlayingVC.swift in Sources */,
 				384F6BA923393FAE005BCAED /* NowPlayingDate.swift in Sources */,
+				38681D5E233BBBC7004D82BC /* API.swift in Sources */,
 				384F6BA123393239005BCAED /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
