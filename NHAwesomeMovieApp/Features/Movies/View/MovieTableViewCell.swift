@@ -29,7 +29,7 @@ class TableViewBaseCell: UITableViewCell {
 }
 
 
-protocol NowPlayingTCVM {
+protocol MovieTCVM {
     var articleVM: Movie { get }
     var ratingVM: String { get }
     var titleVM: String { get }
@@ -38,7 +38,7 @@ protocol NowPlayingTCVM {
     var smallpreviewVM: String { get }
 }
 
-extension Movie: NowPlayingTCVM {
+extension Movie: MovieTCVM {
     var titleVM: String {
         return title ?? ""
     }
@@ -68,7 +68,7 @@ extension Movie: NowPlayingTCVM {
 class MovieTableViewCell : TableViewBaseCell{
     
     
-    var viewModel: NowPlayingTCVM? {
+    var viewModel: MovieTCVM? {
         didSet {
             bindViewModel()
         }

@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct NowPlayingDate : Codable {
+struct MovieDate : Codable {
     
     let maximum : String?
     let minimum : String?

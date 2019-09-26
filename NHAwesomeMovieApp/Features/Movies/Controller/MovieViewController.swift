@@ -14,7 +14,7 @@ internal class MovieViewController: UIViewController, AlertDisplayer {
         static let id = "cellid"
     }
     
-     var viewModel: NowPlayingViewModel!
+     var viewModel: MovieViewModel!
  
     var tableView : UITableView = {
         var tableView = UITableView()
@@ -63,7 +63,7 @@ extension MovieViewController: UITableViewDataSource {
     }
 }
 
-extension MovieViewController: NowPlayingViewModelDelegate {
+extension MovieViewController: MovieViewModelDelegate {
     
     func onFetchCompleted(with newIndexPathsToReload: [IndexPath]?) {
         // 1

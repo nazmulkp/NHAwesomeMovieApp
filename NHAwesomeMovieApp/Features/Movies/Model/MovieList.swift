@@ -10,7 +10,7 @@ import Foundation
 
 struct MovieList : Codable {
     
-    let dates : NowPlayingDate?
+    let dates : MovieDate?
     let page : Int?
     let results : [Movie]?
     let totalPages : Int?
@@ -26,7 +26,7 @@ struct MovieList : Codable {
     }
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        dates = try NowPlayingDate(from: decoder)
+        dates = try MovieDate(from: decoder)
         page = try values.decodeIfPresent(Int.self, forKey: .page)
         results = try values.decodeIfPresent([Movie].self, forKey: .results)
         totalPages = try values.decodeIfPresent(Int.self, forKey: .totalPages)

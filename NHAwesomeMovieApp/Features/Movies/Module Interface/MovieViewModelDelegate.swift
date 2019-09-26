@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol NowPlayingViewModelDelegate: class {
+protocol MovieViewModelDelegate: class {
     func onFetchCompleted(with newIndexPathsToReload: [IndexPath]?)
     func onFetchFailed(with reason: String)
 }

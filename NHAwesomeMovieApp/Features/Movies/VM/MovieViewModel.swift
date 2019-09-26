@@ -9,8 +9,8 @@
 
 import Foundation
 
-final class NowPlayingViewModel {
-    private weak var delegate: NowPlayingViewModelDelegate?
+final class MovieViewModel {
+    private weak var delegate: MovieViewModelDelegate?
     
     private var nowPlaying: [Movie] = []
     private var currentPage = 1
@@ -19,7 +19,7 @@ final class NowPlayingViewModel {
     
     var client : NHDataProvider!
     var pageName : String!
-    init( pageName: String, client : NHDataProvider = NHClientHTTPNetworking(), delegate: NowPlayingViewModelDelegate) {
+    init( pageName: String, client : NHDataProvider = NHClientHTTPNetworking(), delegate: MovieViewModelDelegate) {
         self.pageName = pageName
         self.client = client
         self.delegate = delegate

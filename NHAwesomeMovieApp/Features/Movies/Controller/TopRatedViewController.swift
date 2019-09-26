@@ -12,7 +12,7 @@ class TopRatedViewController : NowPlayingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LLSpinner.spin()
-        viewModel = NowPlayingViewModel(pageName: MoviesEndPoint.getTopRates.rawValue, delegate: self)
+        viewModel = MovieViewModel(pageName: MoviesEndPoint.getTopRates.rawValue, delegate: self)
         viewModel.fetchMovies()
     }
 }

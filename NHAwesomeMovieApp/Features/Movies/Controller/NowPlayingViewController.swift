@@ -13,7 +13,7 @@ class NowPlayingViewController : MovieViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LLSpinner.spin()
-        viewModel = NowPlayingViewModel(pageName: MoviesEndPoint.getnowPlaying.rawValue, delegate: self)
+        viewModel = MovieViewModel(pageName: MoviesEndPoint.getnowPlaying.rawValue, delegate: self)
         viewModel.fetchMovies()
     }
 }
