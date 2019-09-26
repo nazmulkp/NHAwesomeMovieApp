@@ -41,6 +41,8 @@
 		38681D76233C3857004D82BC /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D75233C3857004D82BC /* TopRatedViewController.swift */; };
 		38681D78233C387D004D82BC /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D77233C387D004D82BC /* NowPlayingViewController.swift */; };
 		38681D7A233C3C52004D82BC /* DetailedmovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D79233C3C52004D82BC /* DetailedmovieViewController.swift */; };
+		38681D7C233C9F11004D82BC /* MovieDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D7B233C9F11004D82BC /* MovieDetailsTableViewCell.swift */; };
+		38681D7E233C9F57004D82BC /* MovieTCVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D7D233C9F57004D82BC /* MovieTCVM.swift */; };
 		50F340180157C9D1F129D6BC /* Pods_NHAwesomeMovieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E28CC71F6F61B2AF07CB40EA /* Pods_NHAwesomeMovieAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,8 @@
 		38681D75233C3857004D82BC /* TopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
 		38681D77233C387D004D82BC /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		38681D79233C3C52004D82BC /* DetailedmovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedmovieViewController.swift; sourceTree = "<group>"; };
+		38681D7B233C9F11004D82BC /* MovieDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		38681D7D233C9F57004D82BC /* MovieTCVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTCVM.swift; sourceTree = "<group>"; };
 		8561B39046994E440C5E0B6B /* Pods-NHAwesomeMovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHAwesomeMovieApp.release.xcconfig"; path = "Target Support Files/Pods-NHAwesomeMovieApp/Pods-NHAwesomeMovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		9BC21D23F69FD09FBB764DC1 /* Pods-NHAwesomeMovieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHAwesomeMovieApp.debug.xcconfig"; path = "Target Support Files/Pods-NHAwesomeMovieApp/Pods-NHAwesomeMovieApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B1D2B0305B37C8E8885A8E8D /* Pods-NHAwesomeMovieAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHAwesomeMovieAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-NHAwesomeMovieAppUITests/Pods-NHAwesomeMovieAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				38681D5F233BBD90004D82BC /* MovieViewModel.swift */,
+				38681D7D233C9F57004D82BC /* MovieTCVM.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				38681D64233BC059004D82BC /* MovieTableViewCell.swift */,
+				38681D7B233C9F11004D82BC /* MovieDetailsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 			files = (
 				384F6B9E23393239005BCAED /* FontConstant.swift in Sources */,
 				384F6BA523393239005BCAED /* UIVew+Constraints.swift in Sources */,
+				38681D7E233C9F57004D82BC /* MovieTCVM.swift in Sources */,
 				384F6BA323393239005BCAED /* LLSpinner.swift in Sources */,
 				384F6B9F23393239005BCAED /* AppThemeConstant.swift in Sources */,
 				38681D67233BE574004D82BC /* AuthHelper.swift in Sources */,
@@ -605,6 +612,7 @@
 				38681D74233C1E3A004D82BC /* AppConstants.swift in Sources */,
 				38681D69233BE595004D82BC /* K.swift in Sources */,
 				384F6BA223393239005BCAED /* MovieViewController.swift in Sources */,
+				38681D7C233C9F11004D82BC /* MovieDetailsTableViewCell.swift in Sources */,
 				38681D6B233BE859004D82BC /* MovieViewModelDelegate.swift in Sources */,
 				38681D63233BBE4A004D82BC /* NHClientHTTPNetworking.swift in Sources */,
 				38681D6D233BE8B2004D82BC /* AlertDisplayer.swift in Sources */,
