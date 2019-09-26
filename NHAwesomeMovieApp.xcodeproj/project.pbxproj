@@ -40,6 +40,7 @@
 		38681D74233C1E3A004D82BC /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D73233C1E3A004D82BC /* AppConstants.swift */; };
 		38681D76233C3857004D82BC /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D75233C3857004D82BC /* TopRatedViewController.swift */; };
 		38681D78233C387D004D82BC /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D77233C387D004D82BC /* NowPlayingViewController.swift */; };
+		38681D7A233C3C52004D82BC /* DetailedmovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38681D79233C3C52004D82BC /* DetailedmovieViewController.swift */; };
 		50F340180157C9D1F129D6BC /* Pods_NHAwesomeMovieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E28CC71F6F61B2AF07CB40EA /* Pods_NHAwesomeMovieAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		38681D73233C1E3A004D82BC /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		38681D75233C3857004D82BC /* TopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
 		38681D77233C387D004D82BC /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		38681D79233C3C52004D82BC /* DetailedmovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedmovieViewController.swift; sourceTree = "<group>"; };
 		8561B39046994E440C5E0B6B /* Pods-NHAwesomeMovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHAwesomeMovieApp.release.xcconfig"; path = "Target Support Files/Pods-NHAwesomeMovieApp/Pods-NHAwesomeMovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		9BC21D23F69FD09FBB764DC1 /* Pods-NHAwesomeMovieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHAwesomeMovieApp.debug.xcconfig"; path = "Target Support Files/Pods-NHAwesomeMovieApp/Pods-NHAwesomeMovieApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B1D2B0305B37C8E8885A8E8D /* Pods-NHAwesomeMovieAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHAwesomeMovieAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-NHAwesomeMovieAppUITests/Pods-NHAwesomeMovieAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				384F6B8923393238005BCAED /* MovieViewController.swift */,
 				38681D75233C3857004D82BC /* TopRatedViewController.swift */,
 				38681D77233C387D004D82BC /* NowPlayingViewController.swift */,
+				38681D79233C3C52004D82BC /* DetailedmovieViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				38681D60233BBD90004D82BC /* MovieViewModel.swift in Sources */,
 				384F6BA923393FAE005BCAED /* MovieDate.swift in Sources */,
 				384F6BA123393239005BCAED /* Color.swift in Sources */,
+				38681D7A233C3C52004D82BC /* DetailedmovieViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

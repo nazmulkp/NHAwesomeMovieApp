@@ -36,26 +36,32 @@ protocol MovieTCVM {
     var overviewVM: String { get }
     var releseDateVM: String { get }
     var smallpreviewVM: String { get }
+    var posterviewVM: String { get }
 }
 
 extension Movie: MovieTCVM {
+
     var titleVM: String {
         return title ?? ""
     }
     
     var ratingVM: String {
-        return "\(voteAverage ?? 0.0)"
+        return "Rating: " + "\(voteAverage ?? 0.0)"
     }
     var overviewVM: String {
         return overview ?? ""
     }
     
     var releseDateVM: String {
-        return releaseDate ?? ""
+        return "Release date: " + "\(releaseDate ?? "")"
     }
     
     var smallpreviewVM: String {
         return backdropPath ?? ""
+    }
+    
+    var posterviewVM: String {
+        return posterPath ?? ""
     }
     
     
@@ -80,14 +86,14 @@ class MovieTableViewCell : TableViewBaseCell{
             labelTitle.text = vm.titleVM
             labelOverview.text = vm.overviewVM
             labelReleaseDate.text = vm.releseDateVM
-            let url = URL(string: K.ImageDownload.endpath(withName: vm.smallpreviewVM).path)
+            let url = URL(string: K.SmallImageDownload.endpath(withName: vm.smallpreviewVM).path)
            // print(url)
-            imageViewSmallPoster.kf.setImage(with: url)
+            imageViewForPreview.kf.setImage(with: url)
         }
     }
     
     
-    var imageViewSmallPoster : UIImageView = {
+    var imageViewForPreview : UIImageView = {
         var imageView = UIImageView()
         imageView.backgroundColor = .red
         imageView.image = UIImage(named: "aaaaa")
@@ -151,20 +157,19 @@ class MovieTableViewCell : TableViewBaseCell{
     
     
     override func setupCell()  {
-        addSubview(imageViewSmallPoster)
-        imageViewSmallPoster.addSubview(blackShadowView)
+        addSubview(imageViewForPreview)
+        imageViewForPreview.addSubview(blackShadowView)
         blackShadowView.fillSuperview()
         addSubview(labelTitle)
         addSubview(labelRating)
         addSubview(labelOverview)
         addSubview(labelReleaseDate)
-        imageViewSmallPoster.anchor(self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, right: nil,
-                                 topConstant: 15, leftConstant: 15, bottomConstant: 15, rightConstant: 5, widthConstant: self.frame.width/2, heightConstant: self.frame.width/2)
+        imageViewForPreview.anchor(self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, right: nil, topConstant: 15, leftConstant: 15, bottomConstant: 15, rightConstant: 5, widthConstant: self.frame.width/2, heightConstant: self.frame.width/2)
         
-        labelRating.anchor(self.topAnchor, left: imageViewSmallPoster.rightAnchor, bottom: nil, right: self.rightAnchor,
+        labelRating.anchor(self.topAnchor, left: imageViewForPreview.rightAnchor, bottom: nil, right: self.rightAnchor,
                             topConstant: 15, leftConstant: 15, bottomConstant: 0, rightConstant: 10, widthConstant: 0, heightConstant: 0)
         
-        labelTitle.anchor(labelRating.bottomAnchor, left: imageViewSmallPoster.rightAnchor, bottom: nil, right: self.rightAnchor, topConstant: 3, leftConstant: 15, bottomConstant: 0, rightConstant: 10, widthConstant: 0, heightConstant: 0)
+        labelTitle.anchor(labelRating.bottomAnchor, left: imageViewForPreview.rightAnchor, bottom: nil, right: self.rightAnchor, topConstant: 3, leftConstant: 15, bottomConstant: 0, rightConstant: 10, widthConstant: 0, heightConstant: 0)
         
         
         
@@ -180,3 +185,53 @@ class MovieTableViewCell : TableViewBaseCell{
     }
 
 }
+
+
+
+class MovieDetailsTableViewCell : MovieTableViewCell{
+    
+    
+   override var viewModel: MovieTCVM? {
+        didSet {
+            bindViewModel()
+        }
+    }
+    
+    private func bindViewModel() {
+        if let vm = viewModel {
+            labelRating.text = vm.ratingVM
+            labelTitle.text = vm.titleVM
+            labelOverview.text = vm.overviewVM
+            labelReleaseDate.text = vm.releseDateVM
+            let url = URL(string: K.PosterImageDownload.endpath(withName: vm.posterviewVM).path)
+            imageViewForPreview.kf.setImage(with: url)
+        }
+    }
+    
+    
+   
+    
+    override func setupCell()  {
+        addSubview(imageViewForPreview)
+        imageViewForPreview.addSubview(blackShadowView)
+        blackShadowView.fillSuperview()
+        addSubview(labelTitle)
+        addSubview(labelRating)
+        addSubview(labelOverview)
+        addSubview(labelReleaseDate)
+        imageViewForPreview.anchor(self.topAnchor, left: self.leftAnchor, bottom: labelRating.topAnchor, right: self.rightAnchor,topConstant: 15, leftConstant: 15, bottomConstant: 15, rightConstant: 15, widthConstant: 0, heightConstant: 340)
+        
+        labelRating.anchor(imageViewForPreview.bottomAnchor, left: self.leftAnchor, bottom: nil, right: self.rightAnchor,topConstant: 15, leftConstant: 15, bottomConstant: 0, rightConstant: 15, widthConstant: 0, heightConstant: 0)
+        
+        labelTitle.anchor(labelRating.bottomAnchor, left: self.leftAnchor, bottom: nil, right: self.rightAnchor, topConstant: 3, leftConstant: 15, bottomConstant: 0, rightConstant: 15, widthConstant: 0, heightConstant: 0)
+        
+        
+        labelOverview.numberOfLines = 0
+        labelOverview.anchor(labelTitle.bottomAnchor, left: self.leftAnchor, bottom: nil, right: self.rightAnchor,topConstant: 5 , leftConstant: 15, bottomConstant: 0, rightConstant: 15, widthConstant: 0, heightConstant: 0)
+        
+        labelReleaseDate.anchor(labelOverview.bottomAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: 10, leftConstant: 15, bottomConstant: 15, rightConstant: 15, widthConstant: 0, heightConstant: 0)
+        
+    }
+    
+}
+

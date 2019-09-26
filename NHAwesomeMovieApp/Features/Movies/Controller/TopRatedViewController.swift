@@ -16,3 +16,5 @@ class TopRatedViewController : NowPlayingViewController {
         viewModel.fetchMovies()
     }
 }
+
+

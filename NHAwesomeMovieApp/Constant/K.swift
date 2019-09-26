@@ -24,7 +24,7 @@ struct K {
     
     private  struct Routes {
         static let Api = "/3"
-        static let ApiImage = "/t/p/w45"
+        static let ApiImage = "/t/p"
     }
     
     private  static let Domain = Domains.Dev
@@ -39,12 +39,22 @@ struct K {
     }
     //https://api.themoviedb.org/t/p/w45/8moTOzunF7p40oR5XhlDvJckOSW.jpg
     //https://image.tmdb.org/t/p/w45/zfE0R94v1E8cuKAerbskfD3VfUt.jpg
-    enum ImageDownload {
+    enum SmallImageDownload {
         case endpath(withName: String)
         var path: String {
             switch self {
             case let .endpath(withName):
-                return BaseURLImage +  "/" + withName
+                return BaseURLImage +  "/w45/" + withName
+            }
+        }
+    }
+    
+    enum PosterImageDownload {
+        case endpath(withName: String)
+        var path: String {
+            switch self {
+            case let .endpath(withName):
+                return BaseURLImage +  "/original/" + withName
             }
         }
     }

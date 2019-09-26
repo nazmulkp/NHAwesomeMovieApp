@@ -12,7 +12,7 @@ import Foundation
 final class MovieViewModel {
     private weak var delegate: MovieViewModelDelegate?
     
-    private var nowPlaying: [Movie] = []
+    private var movies: [Movie] = []
     private var currentPage = 1
     private var total = 0
     private var isFetchInProgress = false
@@ -30,11 +30,11 @@ final class MovieViewModel {
     }
     
     var currentCount: Int {
-        return nowPlaying.count
+        return movies.count
     }
     
     func movie(at index: Int) -> Movie {
-        return nowPlaying[index]
+        return movies[index]
     }
     
     func fetchMovies() {
@@ -66,7 +66,7 @@ final class MovieViewModel {
                     if let response = response as? MovieList {
                         self.total = response.totalResults ?? 0
                         if let results =  response.results {
-                            self.nowPlaying.append(contentsOf: results)
+                            self.movies.append(contentsOf: results)
                         }
                         if response.page ?? 0 > 1 {
                             if let results =  response.results {
@@ -85,8 +85,10 @@ final class MovieViewModel {
     }
     
     private func calculateIndexPathsToReload(from newModerators: [Movie]) -> [IndexPath] {
-        let startIndex = nowPlaying.count - newModerators.count
+        let startIndex = movies.count - newModerators.count
         let endIndex = startIndex + newModerators.count
         return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
     }
 }
+
+

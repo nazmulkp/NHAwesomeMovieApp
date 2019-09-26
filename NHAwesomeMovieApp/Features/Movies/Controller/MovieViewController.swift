@@ -27,6 +27,7 @@ internal class MovieViewController: UIViewController, AlertDisplayer {
         tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.id)
         tableView.isHidden = true
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.estimatedRowHeight = 600
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
@@ -60,6 +61,15 @@ extension MovieViewController: UITableViewDataSource {
         return cell
         
         
+    }
+}
+
+extension MovieViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = DetailedmovieViewController()
+        controller.viewModel = viewModel.movie(at: indexPath.row)
+        controller.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 
