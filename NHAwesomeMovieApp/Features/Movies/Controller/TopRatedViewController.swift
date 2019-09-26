@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopRatedViewController : NowPlayingViewController {
+class TopRatedViewController : MovieViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LLSpinner.spin()
