@@ -70,7 +70,7 @@ final class NHClientHTTPNetworking : NHDataProvider {
             }
             
             // 4
-            guard let decodedResponse = try? JSONDecoder().decode(NowPlayingList.self, from: data) else {
+            guard let decodedResponse = try? JSONDecoder().decode(MovieList.self, from: data) else {
                 completion(Result.failure(DataResponseError.decoding))
                 return
             }

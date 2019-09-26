@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct NowPlayingList : Codable {
+struct MovieList : Codable {
     
     let dates : NowPlayingDate?
     let page : Int?
-    let results : [NowPlaying]?
+    let results : [Movie]?
     let totalPages : Int?
     let totalResults : Int?
     
@@ -28,7 +28,7 @@ struct NowPlayingList : Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         dates = try NowPlayingDate(from: decoder)
         page = try values.decodeIfPresent(Int.self, forKey: .page)
-        results = try values.decodeIfPresent([NowPlaying].self, forKey: .results)
+        results = try values.decodeIfPresent([Movie].self, forKey: .results)
         totalPages = try values.decodeIfPresent(Int.self, forKey: .totalPages)
         totalResults = try values.decodeIfPresent(Int.self, forKey: .totalResults)
     }

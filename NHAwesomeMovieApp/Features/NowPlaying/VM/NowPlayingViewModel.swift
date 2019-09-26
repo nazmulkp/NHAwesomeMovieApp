@@ -12,7 +12,7 @@ import Foundation
 final class NowPlayingViewModel {
     private weak var delegate: NowPlayingViewModelDelegate?
     
-    private var nowPlaying: [NowPlaying] = []
+    private var nowPlaying: [Movie] = []
     private var currentPage = 1
     private var total = 0
     private var isFetchInProgress = false
@@ -33,11 +33,11 @@ final class NowPlayingViewModel {
         return nowPlaying.count
     }
     
-    func nowPlaying(at index: Int) -> NowPlaying {
+    func movie(at index: Int) -> Movie {
         return nowPlaying[index]
     }
     
-    func fetchNowPlaying() {
+    func fetchMovies() {
         // 1
         guard !isFetchInProgress else {
             return
@@ -47,7 +47,7 @@ final class NowPlayingViewModel {
         // 2
         let url = URL(string:K.APIEndpoints.getNowPlaying(pageNaem: pageName, page: currentPage, key: tokenClosure()).path )!
         print(url)
-        client.fetchRemote(NowPlayingList.self, url: url) { result in
+        client.fetchRemote(MovieList.self, url: url) { result in
             switch result {
             // 3
             case .failure(let error):
@@ -63,7 +63,7 @@ final class NowPlayingViewModel {
                     self.isFetchInProgress = false
                     // 2
                     
-                    if let response = response as? NowPlayingList {
+                    if let response = response as? MovieList {
                         self.total = response.totalResults ?? 0
                         if let results =  response.results {
                             self.nowPlaying.append(contentsOf: results)
@@ -84,7 +84,7 @@ final class NowPlayingViewModel {
         
     }
     
-    private func calculateIndexPathsToReload(from newModerators: [NowPlaying]) -> [IndexPath] {
+    private func calculateIndexPathsToReload(from newModerators: [Movie]) -> [IndexPath] {
         let startIndex = nowPlaying.count - newModerators.count
         let endIndex = startIndex + newModerators.count
         return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }

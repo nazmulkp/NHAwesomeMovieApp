@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NowPlaying : Codable {
+struct Movie : Codable {
     
     let adult : Bool?
     let backdropPath : String?

@@ -9,7 +9,7 @@
 import UIKit
 
 
-class MoveViewController: UIViewController, AlertDisplayer {
+internal class MovieViewController: UIViewController, AlertDisplayer {
     private enum CellIdentifiers {
         static let id = "cellid"
     }
@@ -24,7 +24,7 @@ class MoveViewController: UIViewController, AlertDisplayer {
     fileprivate func setupView() {
         self.view.addSubview(tableView)
         tableView.fillSuperview()
-        tableView.register(NowPlayingTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.id)
+        tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.id)
         tableView.isHidden = true
         tableView.dataSource = self
         tableView.estimatedRowHeight = 600
@@ -42,19 +42,19 @@ class MoveViewController: UIViewController, AlertDisplayer {
     }
 }
 
-extension MoveViewController: UITableViewDataSource {
+extension MovieViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Hints:- Initial count almost 1200+ it's shound not best practice. if you want to use this code as production then you should use 2D array. and keep 60-100 item only that array when scrolling down adding 20 item end of the array then you must be remove 20 item from beginning of the array. and when scrolling up adding 20 item from beginning of the array then remove 20 item from end of the array. 
         return viewModel.totalCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.id, for: indexPath) as! NowPlayingTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.id, for: indexPath) as! MovieTableViewCell
         // 2
         if isLoadingCell(for: indexPath) {
            //TODO
         } else {
-            cell.viewModel = viewModel.nowPlaying(at: indexPath.row)
+            cell.viewModel = viewModel.movie(at: indexPath.row)
         }
         
         return cell
@@ -63,7 +63,7 @@ extension MoveViewController: UITableViewDataSource {
     }
 }
 
-extension MoveViewController: NowPlayingViewModelDelegate {
+extension MovieViewController: NowPlayingViewModelDelegate {
     
     func onFetchCompleted(with newIndexPathsToReload: [IndexPath]?) {
         // 1
@@ -90,7 +90,7 @@ extension MoveViewController: NowPlayingViewModelDelegate {
     
 }
 
-private extension MoveViewController {
+private extension MovieViewController {
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
         print("viewing number\(indexPath.row) \(viewModel.totalCount) ,avabilalbe\(viewModel.currentCount)")
         return indexPath.row >= viewModel.currentCount
@@ -103,10 +103,10 @@ private extension MoveViewController {
     }
 }
 
-extension MoveViewController: UITableViewDataSourcePrefetching {
+extension MovieViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         if indexPaths.contains(where: isLoadingCell) {
-            viewModel.fetchNowPlaying()
+            viewModel.fetchMovies()
         }
     }
 }
@@ -115,22 +115,7 @@ extension MoveViewController: UITableViewDataSourcePrefetching {
 
 
 
-class NowPlayingViewController : MoveViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        LLSpinner.spin()
-        viewModel = NowPlayingViewModel(pageName: MoviesEndPoint.getnowPlaying.rawValue, delegate: self)
-        viewModel.fetchNowPlaying()
-    }
-}
 
 
-class TopRatedViewController : NowPlayingViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        LLSpinner.spin()
-        viewModel = NowPlayingViewModel(pageName: MoviesEndPoint.getTopRates.rawValue, delegate: self)
-        viewModel.fetchNowPlaying()
-    }
-}
+
 
