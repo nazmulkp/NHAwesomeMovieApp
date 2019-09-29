@@ -33,7 +33,7 @@ are paginated).
 * Generic programming
 * Don't repeat yourself
 
-## Code Sample
+## Code Sample1
 
 ```python
  final class MovieViewModel {
@@ -53,7 +53,38 @@ are paginated).
     }
     ....................................
 ```
+## Code Sample2
 
+```python
+ final class NHClientHTTPNetworking : NHDataProvider {
+   
+    let session: URLSession
+    
+    init(session: URLSession = URLSession.shared) {
+        self.session = session
+    }
+    
+    func fetchRemote<Model: Codable>(_ val: Model.Type, url: URL,
+                         completion: @escaping (Result<Codable, DataResponseError>) -> Void) {
+        let urlRequest = URLRequest(url: url)
+        session.dataTask(with: urlRequest, completionHandler: { data, response, error in
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.hasSuccessStatusCode,
+                let data = data
+                else {
+                    completion(Result.failure(DataResponseError.network))
+                    return
+            }
+            guard let decodedResponse = try? JSONDecoder().decode(Model.self, from: data) else {
+                completion(Result.failure(DataResponseError.decoding))
+                return
+            }
+            completion(Result.success(decodedResponse))
+        }).resume()
+    }
+}
+```
 ## Contributing
 Pull requests are welcome. For incress efficency, please open an issue first to discuss what you would like to change.
 
