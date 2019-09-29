@@ -28,7 +28,7 @@ Design and develop an iOS NHAwesomeMove App using Swift where,
 are paginated).
 * Use Model-View-ViewModel (MVVM) to perform .
 * Use programaticlay Auto-layout.
-* Use Protocal orionted programming 
+* Use Protocol oriented programming 
 * Software design patterns #(DI)
 * Generic programming
 * Don't repeat yourself
