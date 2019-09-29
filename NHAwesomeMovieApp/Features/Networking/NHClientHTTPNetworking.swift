@@ -54,12 +54,8 @@ final class NHClientHTTPNetworking : NHDataProvider {
     
     func fetchRemote<Model: Codable>(_ val: Model.Type, url: URL,
                          completion: @escaping (Result<Codable, DataResponseError>) -> Void) {
-        // 1
         let urlRequest = URLRequest(url: url)
-        // 2
-
         session.dataTask(with: urlRequest, completionHandler: { data, response, error in
-            // 3
             guard
                 let httpResponse = response as? HTTPURLResponse,
                 httpResponse.hasSuccessStatusCode,
@@ -68,14 +64,10 @@ final class NHClientHTTPNetworking : NHDataProvider {
                     completion(Result.failure(DataResponseError.network))
                     return
             }
-            
-            // 4
-            guard let decodedResponse = try? JSONDecoder().decode(MovieList.self, from: data) else {
+            guard let decodedResponse = try? JSONDecoder().decode(Model.self, from: data) else {
                 completion(Result.failure(DataResponseError.decoding))
                 return
             }
-            
-            // 5
             completion(Result.success(decodedResponse))
         }).resume()
     }
