@@ -51,13 +51,13 @@ final class MovieViewModel {
             switch result {
             // 3
             case .failure(let error):
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [unowned self] in
                     self.isFetchInProgress = false
                     self.delegate?.onFetchFailed(with: error.reason)
                 }
             // 4
             case .success(let response):
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [unowned self] in
                     // 1
                     self.currentPage += 1
                     self.isFetchInProgress = false
