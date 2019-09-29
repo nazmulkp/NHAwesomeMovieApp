@@ -8,6 +8,7 @@ What is the best practice for an Xcode project groups structure?<br/>
 What is the best Practice for communication to a REST API with JSON?<br/>
 How to add infinite scroll pagination to UITableview?<br/>
 How to perfrom protocal orianted programming? 
+How to creating UI Programmatically in Swift?
 
 
 <p align="center"> 
@@ -27,7 +28,7 @@ Design and develop an iOS NHAwesomeMove App using Swift where,
 * Use infinite scrolling to load more data. (Both Now Playing and Top Rated API responses
 are paginated).
 * Use Model-View-ViewModel (MVVM) to perform .
-* Use programaticlay Auto-layout.
+* Use programmatically Auto-layout.
 * Use Protocol oriented programming 
 * Software design patterns #(DI)
 * Generic programming
