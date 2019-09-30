@@ -87,7 +87,7 @@ are paginated).
 }
 ```
 ## Contributing
-Pull requests are welcome. For incress efficency. If you find an issue, just open a [ticket](https://github.com/nazmulkp/NHAwesomeMovieApp/issues).
+Pull requests are welcome. For incress efficency. If you find an issue, just open a [ticket](https://github.com/nazmulkp/NHAwesomeMovieApp/issues/new).
 
 Please make sure to update tests as appropriate.
 
