@@ -245,20 +245,12 @@
 			isa = PBXGroup;
 			children = (
 				384F6B8723393238005BCAED /* Module Interface */,
-				384F6B8623393238005BCAED /* DataManager */,
 				384F6B8B23393238005BCAED /* Model */,
 				384F6B8C23393238005BCAED /* View */,
 				384F6B8A23393238005BCAED /* VM */,
 				384F6B8823393238005BCAED /* Controller */,
 			);
 			path = Movies;
-			sourceTree = "<group>";
-		};
-		384F6B8623393238005BCAED /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DataManager;
 			sourceTree = "<group>";
 		};
 		384F6B8723393238005BCAED /* Module Interface */ = {
@@ -798,6 +790,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NHAwesomeMovieApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -816,6 +809,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NHAwesomeMovieApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
