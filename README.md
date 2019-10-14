@@ -102,6 +102,6 @@ Nazmul Hasan <br/>
 Sr. software engineer, iOS<br/>
 Skype: nazmulkp1<br/>
 Mail: nazmulcsharp@gmail.com<br/>
-[Linkedin](https://www.linkedin.com/in/nazmulkp/)
+[twitter](https://twitter.com/nazmulkp053)
 
 
