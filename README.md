@@ -1,73 +1,105 @@
-# Users can tap the photo to see a full-screen view. 
-#### Create Infinite scrolling iOS App with MVVM arcitecure, REST Client Networking request,SwiftUI and Swift programming laguage!!!!
+# MVVM with Clean Architecture. 
+#### Create Infinite scrolling iOS App with MVVM arcitecure, Well-designed REST Client Networking request and Swift4 programming laguage!!!!
 
-Design and develop an iOS Image gallery App using SwiftUI where,
+
+
+What is the best practices for MVVM design pattern?<br/>
+What is the best practice for an Xcode project groups structure?<br/>
+What is the best Practice for communication to a REST API with JSON?<br/>
+How to add infinite scroll pagination to UITableview?<br/>
+How to perfrom protocal orianted programming? 
+How to creating UI Programmatically in Swift?
+
+
+<p align="center"> 
+  <img width="250" height="500" src="https://i.imgur.com/9OO16bP.png">
+  <img width="250" height="500" src="https://i.imgur.com/dWTnUH8.png">
+  <img width="250" height="500" src="https://i.imgur.com/ZxgYxxA.png"> 
+</p>
+
+
+# Swift With clean clean Architecture 
+
+Design and develop an iOS NHAwesomeMove App using Swift where,
 
 ## Description:
 
-* Use Restful APIs with back-end services https://picsum.photos.
-* The user can tap the photo.
-* The user can see a full-screen view of the photo.
-* The user has an infinite scroll on the gallery screen.
-* Cache images.
-* Allow saving photos in JPEG format to the local gallery.
-* Allow sharing the photo.
+* Use Restful APIs with back-end services #themoviedb.
+* Use infinite scrolling to load more data. (Both Now Playing and Top Rated API responses
+are paginated).
 * Use Model-View-ViewModel (MVVM) to perform .
-* Use SwiftUI.
+* Use programmatically Auto-layout.
+* Use Protocol oriented programming 
+* Software design patterns #(DI)
+* Generic programming
+* Don't repeat yourself
 
 ## Code Sample1
 
 ```python
-    func populateData(page: Int) {
-        // "https://picsum.photos/v2/list?page=1&limit=100"
-        guard let url = URL(string: K.APIEndpoints.getNowTreanding(pageNaem: "list", page: page, limit: 20).path) else {
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
-            guard let data = data, error == nil else {
-                return
-            }
-            
-            let numbers = try? JSONDecoder().decode([Picsum].self, from: data)
-            DispatchQueue.main.async {
-                self.picsums.append(contentsOf: numbers ?? [])
-                self.setCompositionalLayout()
-            }
-            
-        }.resume()
-    }
+ final class MovieViewModel {
+    private weak var delegate: MovieViewModelDelegate?
     
+    private var movies: [Movie] = []
+    private var currentPage = 1
+    private var total = 0
+    private var isFetchInProgress = false
+    
+    var client : NHDataProvider!
+    var pageName : String!
+    init( pageName: String, client : NHDataProvider = NHClientHTTPNetworking(), delegate: MovieViewModelDelegate) {
+        self.pageName = pageName
+        self.client = client
+        self.delegate = delegate
+    }
     ....................................
 ```
 ## Code Sample2
 
 ```python
-VStack(spacing:0){
-    List(picsumListVM.compositionalArray.indices, id: \.self){ index in
-        VStack(spacing:4){
-            if index == 0 || index % 6 == 0 {
-                Layout1(picsums: picsumListVM.compositionalArray[index])
-            }else if index % 3 == 0 {
-                Layout3(picsums: picsumListVM.compositionalArray[index])
-            }else {
-                Layout2(picsums: picsumListVM.compositionalArray[index])
+ final class NHClientHTTPNetworking : NHDataProvider {
+   
+    let session: URLSession
+    
+    init(session: URLSession = URLSession.shared) {
+        self.session = session
+    }
+    
+    func fetchRemote<Model: Codable>(_ val: Model.Type, url: URL,
+                         completion: @escaping (Result<Codable, DataResponseError>) -> Void) {
+        let urlRequest = URLRequest(url: url)
+        session.dataTask(with: urlRequest, completionHandler: { data, response, error in
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.hasSuccessStatusCode,
+                let data = data
+                else {
+                    completion(Result.failure(DataResponseError.network))
+                    return
             }
-        }.onAppear(perform: {
-            print("on apper")
-            if picsumListVM.shouldLoadData(id: index) {
-                currentPage += 1
-                picsumListVM.populateData(page: currentPage)
+            guard let decodedResponse = try? JSONDecoder().decode(Model.self, from: data) else {
+                completion(Result.failure(DataResponseError.decoding))
+                return
             }
-        })
-    }.padding(.trailing, 20)
+            completion(Result.success(decodedResponse))
+        }).resume()
+    }
 }
 ```
-## Possbile to do 
-Unit test for save the image 
-Cache API response 
-Keep maximum 80 item in the [Picsum] array 
-Make sure a notify to the user when image save in gallery [ use delegate patten]
-User able to choose like photo in future explore  
+## Contributing
+Pull requests are welcome. For incress efficency. If you find an issue, just open a [ticket](https://github.com/nazmulkp/NHAwesomeMovieApp/issues/new).
+
+Please make sure to update tests as appropriate.
 
 
+## Contact with Me
+
+Hi!
+Right now i have 4 years+ experience iPhone application development/Xcode App Update / Bug Fixes. my 7 development apps almost App store top leading app.[Stackoverflow 6000+ reputation for 150+ accepted and voted answer](https://stackoverflow.com/users/4415445/nazmul-hasan). I love to write clean code that is help to understand new developer to enhance the app easily in future.
+
+Thanks you <br/>
+Nazmul Hasan <br/>
+Sr. software engineer, iOS<br/>
+Skype: nazmulkp1<br/>
+Mail: nazmulcsharp@gmail.com<br/>
+[twitter](https://twitter.com/nazmulkp053)
